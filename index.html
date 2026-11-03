@@ -1,0 +1,1769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abhijeeth & Smitha — Wedding Celebration</title>
+  
+  <!-- Open Graph / WhatsApp Preview Metadata -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Wedding Celebration — Abhijeeth & Smitha">
+  <meta property="og:description" content="We cordially invite you to celebrate the wedding ceremony & reception of Abhijeeth and Smitha. Click to view schedule, venues & RSVP.">
+  <meta property="og:url" content="https://nabuvhavle-create.github.io/abhijeeth-smitha-wedding/">
+  <meta name="theme-color" content="#5a101b">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💍</text></svg>">
+
+  <!-- Google Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@500;600;700&family=Great+Vibes&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Feather Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root {
+      --maroon-deep: #480a13;
+      --maroon: #63121d;
+      --maroon-light: #7e1d2b;
+      --gold: #c59b27;
+      --gold-light: #e7cf7b;
+      --gold-dark: #8c6a15;
+      --ivory: #faf6ee;
+      --ivory-card: rgba(254, 252, 247, 0.96);
+      --cream-tint: #f3ece0;
+      --text-dark: #2c2523;
+      --text-muted: #6b6360;
+      --border-gold: rgba(197, 155, 39, 0.35);
+      --shadow-luxury: 0 20px 45px rgba(72, 10, 19, 0.08);
+      --font-heading: 'Cinzel', serif;
+      --font-display: 'Cinzel Decorative', serif;
+      --font-script: 'Great Vibes', cursive;
+      --font-body: 'Montserrat', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--ivory);
+      color: var(--text-dark);
+      font-family: var(--font-body);
+      line-height: 1.7;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Subtle Luxury Background Glow */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(197, 155, 39, 0.03) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(99, 18, 29, 0.03) 0%, transparent 40%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    #canvas-petals {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Sticky Navigation */
+    .nav-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(250, 246, 238, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-gold);
+      padding: 14px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+
+    .nav-brand {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      color: var(--maroon);
+      font-size: 1.15rem;
+      letter-spacing: 2px;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: color 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--maroon);
+    }
+
+    .nav-burger {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--maroon);
+      cursor: pointer;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background: var(--ivory);
+      border-bottom: 1px solid var(--border-gold);
+      padding: 20px;
+      flex-direction: column;
+      gap: 16px;
+      z-index: 999;
+      box-shadow: var(--shadow-luxury);
+    }
+
+    .mobile-menu.open {
+      display: flex;
+    }
+
+    .mobile-menu a {
+      text-decoration: none;
+      color: var(--maroon);
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    /* Main Container Structure */
+    .container {
+      width: 100%;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Common Card Styling */
+    .luxury-card {
+      background: var(--ivory-card);
+      border: 1px solid var(--border-gold);
+      border-radius: 20px;
+      padding: 44px 30px;
+      box-shadow: var(--shadow-luxury);
+      position: relative;
+      margin-bottom: 50px;
+      text-align: center;
+    }
+
+    .luxury-card::after {
+      content: '';
+      position: absolute;
+      inset: 8px;
+      border: 1px solid rgba(197, 155, 39, 0.2);
+      border-radius: 14px;
+      pointer-events: none;
+    }
+
+    /* Ornamental Headers */
+    .section-ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .section-ornament-line {
+      height: 1px;
+      width: 60px;
+      background: linear-gradient(to right, transparent, var(--gold));
+    }
+
+    .section-ornament-line.reverse {
+      background: linear-gradient(to left, transparent, var(--gold));
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      color: var(--maroon-deep);
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    .section-subtitle {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      max-width: 600px;
+      margin: 0 auto 32px auto;
+      font-style: italic;
+      text-align: center;
+    }
+
+    /* Section 1: Hero Section */
+    .hero-section {
+      min-height: 88vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding-top: 100px;
+      padding-bottom: 50px;
+    }
+
+    .hero-sparkle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(197, 155, 39, 0.12);
+      color: var(--gold);
+      margin-bottom: 18px;
+    }
+
+    .hero-lead {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: var(--gold-dark);
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    .couple-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.3rem, 6vw, 4.2rem);
+      font-weight: 700;
+      color: var(--maroon-deep);
+      letter-spacing: 2px;
+      line-height: 1.2;
+      margin: 12px 0;
+    }
+
+    .couple-ampersand {
+      font-family: var(--font-script);
+      font-size: clamp(2.8rem, 8vw, 5rem);
+      color: var(--gold);
+      display: block;
+      margin: -10px 0;
+      font-weight: 400;
+    }
+
+    .hero-date {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      color: var(--text-dark);
+      letter-spacing: 2px;
+      margin: 20px 0 32px 0;
+    }
+
+    .btn-hero {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--maroon);
+      color: #fff;
+      padding: 15px 36px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border: 1px solid var(--gold);
+      box-shadow: 0 10px 25px rgba(99, 18, 29, 0.25);
+      transition: all 0.3s ease;
+    }
+
+    .btn-hero:hover {
+      background: var(--maroon-deep);
+      transform: translateY(-2px);
+      box-shadow: 0 15px 30px rgba(99, 18, 29, 0.35);
+    }
+
+    /* Section 2: Silhouette Art Section */
+    .silhouette-card {
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 20px 40px;
+      overflow: hidden;
+    }
+
+    .illustration-frame {
+      width: 100%;
+      max-width: 680px;
+      border-radius: 16px;
+      overflow: hidden;
+      margin: 16px auto 20px;
+      box-shadow: 0 12px 30px rgba(99, 18, 29, 0.08);
+      border: 1px solid var(--border-gold);
+      background-color: #fbf8f2;
+      position: relative;
+    }
+
+    .illustration-frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    .fallback-vector-art {
+      display: none;
+      width: 100%;
+      max-width: 420px;
+      margin: 20px auto;
+      filter: drop-shadow(0 8px 16px rgba(99, 18, 29, 0.12));
+    }
+
+    .quote-text {
+      font-family: var(--font-heading);
+      color: var(--maroon);
+      font-size: 1.15rem;
+      font-style: italic;
+      max-width: 580px;
+      margin: 16px auto 0 auto;
+      line-height: 1.8;
+      text-align: center;
+    }
+
+    /* Section 3: Live Dual-Target Countdown */
+    .countdown-widget {
+      background: #fff;
+      border: 1px solid var(--border-gold);
+      border-radius: 16px;
+      padding: 24px;
+      max-width: 650px;
+      margin: 0 auto 50px auto;
+      box-shadow: var(--shadow-luxury);
+    }
+
+    .countdown-selector {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: 1px solid var(--border-gold);
+      padding: 8px 18px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-radius: 25px;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+
+    .tab-btn.active {
+      background: var(--maroon);
+      color: #fff;
+      border-color: var(--maroon);
+      box-shadow: 0 4px 12px rgba(99, 18, 29, 0.2);
+    }
+
+    .timer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .timer-unit {
+      background: var(--ivory);
+      border: 1px solid rgba(197, 155, 39, 0.25);
+      border-radius: 12px;
+      padding: 14px 8px;
+      text-align: center;
+    }
+
+    .timer-val {
+      font-family: var(--font-heading);
+      font-size: clamp(1.6rem, 3.5vw, 2.3rem);
+      font-weight: 700;
+      color: var(--maroon);
+      display: block;
+      line-height: 1;
+    }
+
+    .timer-lbl {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      margin-top: 6px;
+      display: block;
+    }
+
+    /* Section 4: Traditional Invitation Card */
+    .hosts-block {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--maroon-deep);
+      margin: 10px 0 6px 0;
+    }
+
+    .hosts-designation {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      font-weight: 400;
+      margin-bottom: 24px;
+    }
+
+    .invitee-names {
+      margin: 28px 0;
+    }
+
+    .person-title {
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      color: var(--gold-dark);
+      text-transform: uppercase;
+      font-weight: 600;
+      display: block;
+    }
+
+    .person-full {
+      font-family: var(--font-heading);
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--maroon-deep);
+      margin: 2px 0;
+    }
+
+    .bride-parents {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    /* Section 5: Events Grid */
+    #events {
+      text-align: center;
+    }
+
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 28px;
+      justify-content: center;
+      max-width: 800px;
+      margin: 0 auto 50px auto;
+    }
+
+    .event-box {
+      background: var(--ivory-card);
+      border: 1px solid var(--border-gold);
+      border-radius: 18px;
+      padding: 32px 24px;
+      box-shadow: var(--shadow-luxury);
+      position: relative;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .event-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(99, 18, 29, 0.08);
+      color: var(--maroon);
+      padding: 5px 14px;
+      border-radius: 30px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      width: fit-content;
+    }
+
+    .event-heading {
+      font-family: var(--font-heading);
+      color: var(--maroon-deep);
+      font-size: 1.45rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .event-details-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .event-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.92rem;
+    }
+
+    .event-row i {
+      color: var(--gold);
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+
+    .btn-action-group {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: auto;
+    }
+
+    .btn-interactive {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    .btn-map {
+      background: var(--maroon);
+      color: #fff;
+      border: 1px solid var(--maroon);
+    }
+
+    .btn-map:hover {
+      background: var(--maroon-deep);
+    }
+
+    .btn-cal {
+      background: #fff;
+      color: var(--maroon);
+      border: 1px solid var(--border-gold);
+    }
+
+    .btn-cal:hover {
+      background: rgba(99, 18, 29, 0.05);
+    }
+
+    /* Section 6: RSVP Form */
+    .rsvp-form-container {
+      max-width: 620px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .form-field {
+      margin-bottom: 18px;
+    }
+
+    .form-field label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--maroon-deep);
+      margin-bottom: 8px;
+    }
+
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      padding: 13px 16px;
+      border: 1px solid var(--border-gold);
+      border-radius: 10px;
+      background: #fff;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      transition: all 0.2s;
+    }
+
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      outline: none;
+      border-color: var(--maroon);
+      box-shadow: 0 0 0 3px rgba(99, 18, 29, 0.1);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 85px;
+    }
+
+    .form-duo {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .btn-rsvp-submit {
+      width: 100%;
+      background: #25D366;
+      color: #fff;
+      border: 1px solid #1ebe5d;
+      padding: 16px;
+      border-radius: 10px;
+      font-size: 0.98rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: 0 6px 18px rgba(37, 211, 102, 0.25);
+      transition: all 0.25s ease;
+      margin-top: 10px;
+    }
+
+    .btn-rsvp-submit:hover {
+      background: #1eb956;
+      transform: translateY(-2px);
+    }
+
+    /* Section 7: Gift / Contributions */
+    .gift-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .gift-subcard {
+      background: #fff;
+      border: 1px solid var(--border-gold);
+      border-radius: 14px;
+      padding: 26px 20px;
+      text-align: center;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.03);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .gift-icon-header {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(197, 155, 39, 0.12);
+      color: var(--maroon);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 14px auto;
+    }
+
+    .gift-title {
+      font-family: var(--font-heading);
+      color: var(--maroon-deep);
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .qr-frame {
+      width: 170px;
+      height: 170px;
+      margin: 16px auto;
+      padding: 8px;
+      background: #fff;
+      border: 1px solid var(--border-gold);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .copy-pill {
+      background: var(--ivory);
+      border: 1px dashed var(--border-gold);
+      border-radius: 8px;
+      padding: 12px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.88rem;
+      margin: 16px 0;
+      text-align: left;
+    }
+
+    .copy-pill span {
+      flex: 1;
+      line-height: 1.4;
+      word-break: normal;
+    }
+
+    .btn-copy {
+      background: var(--maroon);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 8px 14px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: background 0.2s;
+    }
+
+    .btn-copy:hover {
+      background: var(--maroon-deep);
+    }
+
+    .btn-upi-pay {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      background: var(--maroon);
+      color: #fff;
+      text-decoration: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-top: 8px;
+      transition: background 0.2s;
+    }
+
+    .btn-upi-pay:hover {
+      background: var(--maroon-deep);
+    }
+
+    /* Section 8: Compliments & Footer */
+    .compliments-wrap {
+      line-height: 2;
+      font-size: 0.98rem;
+    }
+
+    .highlight-names {
+      color: var(--maroon-deep);
+      font-weight: 700;
+      font-size: 1.15rem;
+    }
+
+    .footer-bar {
+      border-top: 1px solid var(--border-gold);
+      padding: 40px 20px;
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 40px;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .nav-burger {
+        display: block;
+      }
+      .form-duo {
+        grid-template-columns: 1fr;
+      }
+      .luxury-card {
+        padding: 32px 18px;
+      }
+      .timer-grid {
+        gap: 6px;
+      }
+      .btn-action-group {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #canvas-petals {
+        display: none;
+      }
+      * {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  
+
+    /* === VISUAL ENHANCEMENT LAYER: presentation only === */
+    :root {
+      --gold-glow: rgba(231, 207, 123, .34);
+      --soft-maroon: rgba(72, 10, 19, .08);
+    }
+
+    body {
+      background-image:
+        radial-gradient(ellipse at 50% 0%, rgba(231, 207, 123, .13), transparent 42%),
+        linear-gradient(180deg, #fcf9f3 0%, var(--ivory) 48%, #f7f0e6 100%);
+      background-attachment: fixed;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 12px;
+      border: 1px solid rgba(197, 155, 39, .12);
+      border-radius: 18px;
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    .nav-bar {
+      box-shadow: 0 8px 30px rgba(72, 10, 19, .055);
+      transition: padding .35s ease, box-shadow .35s ease, background .35s ease;
+    }
+    .nav-bar.scrolled {
+      padding-top: 9px;
+      padding-bottom: 9px;
+      background: rgba(250, 246, 238, .97);
+      box-shadow: 0 10px 32px rgba(72, 10, 19, .11);
+    }
+    .nav-brand { transition: letter-spacing .3s ease, transform .3s ease; }
+    .nav-brand:hover { letter-spacing: 3px; transform: translateY(-1px); }
+    .nav-links a { position: relative; padding: 7px 0; }
+    .nav-links a::after {
+      content: ""; position: absolute; left: 0; right: 100%; bottom: 0;
+      height: 1px; background: linear-gradient(90deg, var(--gold-dark), var(--gold-light));
+      transition: right .3s ease;
+    }
+    .nav-links a:hover::after { right: 0; }
+
+    .hero-section { position: relative; isolation: isolate; }
+    .hero-section::before {
+      content: ""; position: absolute; z-index: -1;
+      width: min(82vw, 690px); aspect-ratio: 1;
+      border: 1px solid rgba(197, 155, 39, .18); border-radius: 50%;
+      box-shadow: 0 0 0 18px rgba(197,155,39,.025), 0 0 0 38px rgba(197,155,39,.018);
+      animation: halo-breathe 7s ease-in-out infinite;
+    }
+    .hero-section::after {
+      content: "✦"; position: absolute; z-index: -1; top: 22%; right: 9%;
+      color: rgba(197,155,39,.45); font-size: 1.3rem;
+      animation: star-drift 6s ease-in-out infinite;
+    }
+    .hero-sparkle {
+      box-shadow: 0 0 0 8px rgba(197,155,39,.055), 0 8px 24px rgba(197,155,39,.12);
+      animation: gentle-float 4s ease-in-out infinite;
+    }
+    .hero-lead { text-shadow: 0 2px 18px rgba(197,155,39,.12); }
+    .couple-title { text-shadow: 0 8px 28px rgba(72,10,19,.08); }
+    .couple-ampersand { filter: drop-shadow(0 4px 8px rgba(197,155,39,.2)); }
+    .hero-date { position: relative; }
+    .hero-date::before, .hero-date::after {
+      content: "✧"; color: var(--gold); font-size: .9rem; margin: 0 13px; opacity: .8;
+    }
+    .btn-hero, .btn-interactive, .btn-rsvp-submit, .btn-upi-pay, .btn-copy {
+      position: relative; overflow: hidden; isolation: isolate;
+    }
+    .btn-hero::before, .btn-interactive::before, .btn-rsvp-submit::before, .btn-upi-pay::before {
+      content: ""; position: absolute; inset: 0; z-index: -1;
+      background: linear-gradient(110deg, transparent 20%, rgba(255,255,255,.2) 48%, transparent 72%);
+      transform: translateX(-130%); transition: transform .7s ease;
+    }
+    .btn-hero:hover::before, .btn-interactive:hover::before,
+    .btn-rsvp-submit:hover::before, .btn-upi-pay:hover::before { transform: translateX(130%); }
+
+    .luxury-card, .countdown-widget, .event-box, .gift-subcard {
+      box-shadow: 0 18px 48px rgba(72,10,19,.065), 0 2px 8px rgba(72,10,19,.025);
+      transition: transform .4s cubic-bezier(.2,.75,.25,1), box-shadow .4s ease, border-color .4s ease;
+    }
+    .luxury-card:hover, .countdown-widget:hover {
+      box-shadow: 0 24px 58px rgba(72,10,19,.09), 0 0 0 1px rgba(197,155,39,.08);
+    }
+    .luxury-card::before, .event-box::before, .gift-subcard::before {
+      content: ""; position: absolute; top: 0; left: 12%; right: 12%; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(197,155,39,.55), transparent);
+      pointer-events: none;
+    }
+    .illustration-frame { box-shadow: 0 18px 42px rgba(99,18,29,.12); }
+    .illustration-frame img { transition: transform 1.2s cubic-bezier(.2,.7,.2,1); }
+    .illustration-frame:hover img { transform: scale(1.025); }
+    .quote-text { text-wrap: pretty; }
+
+    .countdown-widget { position: relative; overflow: hidden; }
+    .countdown-widget::before {
+      content: ""; position: absolute; width: 210px; height: 210px; border-radius: 50%;
+      right: -105px; top: -125px; background: radial-gradient(circle, rgba(231,207,123,.22), transparent 70%);
+      pointer-events: none;
+    }
+    .timer-unit { transition: transform .25s ease, box-shadow .25s ease; }
+    .timer-unit:hover { transform: translateY(-4px); box-shadow: 0 8px 18px rgba(99,18,29,.07); }
+    .timer-val { font-variant-numeric: tabular-nums; text-shadow: 0 3px 12px rgba(99,18,29,.08); }
+    .tab-btn:hover { transform: translateY(-2px); }
+
+    .event-box { overflow: hidden; }
+    .event-box:hover, .gift-subcard:hover {
+      transform: translateY(-7px);
+      border-color: rgba(197,155,39,.58);
+      box-shadow: 0 24px 46px rgba(72,10,19,.11);
+    }
+    .event-badge { transition: background .3s ease, transform .3s ease; }
+    .event-box:hover .event-badge { background: rgba(197,155,39,.15); transform: translateX(3px); }
+    .event-heading { transition: letter-spacing .3s ease; }
+    .event-box:hover .event-heading { letter-spacing: .5px; }
+    .event-row i, .gift-icon-header { transition: transform .35s ease; }
+    .event-box:hover .event-row i { transform: scale(1.12); }
+    .gift-icon-header { box-shadow: 0 0 0 7px rgba(197,155,39,.045); }
+    .gift-subcard:hover .gift-icon-header { transform: translateY(-3px) rotate(-5deg); }
+
+    .form-input, .form-select, .form-textarea { box-shadow: 0 2px 8px rgba(72,10,19,.025); }
+    .form-input:focus, .form-select:focus, .form-textarea:focus { transform: translateY(-1px); }
+    .btn-copy:hover { transform: translateY(-1px); }
+    .qr-frame { transition: transform .35s ease, box-shadow .35s ease; }
+    .gift-subcard:hover .qr-frame { transform: scale(1.025); box-shadow: 0 10px 25px rgba(72,10,19,.08); }
+
+    /* Scroll reveal: elements remain visible if scripting is unavailable. */
+    .reveal-ready .reveal {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1);
+    }
+    .reveal-ready .reveal.is-visible { opacity: 1; transform: translateY(0); }
+    .reveal-ready .reveal[data-reveal-delay="1"] { transition-delay: .12s; }
+    .reveal-ready .reveal[data-reveal-delay="2"] { transition-delay: .24s; }
+    .reveal-ready .reveal[data-reveal-delay="3"] { transition-delay: .36s; }
+
+    @keyframes halo-breathe { 0%,100% { transform: scale(.98); opacity: .65; } 50% { transform: scale(1.025); opacity: 1; } }
+    @keyframes gentle-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+    @keyframes star-drift { 0%,100% { transform: translate3d(0,0,0) rotate(0); opacity: .55; } 50% { transform: translate3d(-9px,12px,0) rotate(25deg); opacity: 1; } }
+
+    @media (max-width: 768px) {
+      body::after { inset: 5px; border-radius: 10px; }
+      .hero-section::before { width: 94vw; }
+      .hero-section::after { right: 5%; top: 18%; }
+      .event-box:hover, .gift-subcard:hover { transform: translateY(-3px); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-section::before, .hero-section::after, .hero-sparkle { animation: none !important; }
+      .reveal-ready .reveal { opacity: 1 !important; transform: none !important; }
+    }
+
+
+    /* === INTERACTIVE WEDDING INVITATION INTRO === */
+    body.intro-active { overflow: hidden; }
+    .invitation-intro {
+      position: fixed; inset: 0; z-index: 3000; display: grid; place-items: center;
+      padding: 24px; overflow: hidden; background:
+        radial-gradient(circle at 50% 42%, rgba(255,255,255,.98), rgba(250,246,238,.97) 48%, #eee2d0 100%);
+      opacity: 1; visibility: visible; transition: opacity .9s ease, visibility .9s ease;
+    }
+    .invitation-intro::before, .invitation-intro::after {
+      content: ''; position: absolute; width: min(76vw, 620px); aspect-ratio: 1; border: 1px solid rgba(181,139,54,.22);
+      border-radius: 50%; pointer-events: none; animation: intro-orbit 24s linear infinite;
+    }
+    .invitation-intro::after { width: min(92vw, 760px); animation-direction: reverse; opacity: .55; }
+    .invitation-intro.is-dismissed { opacity: 0; visibility: hidden; pointer-events: none; }
+    .intro-skip { position: absolute; top: 22px; right: 24px; border: 1px solid rgba(140,106,21,.35); background: rgba(255,255,255,.55); color: #765b24; border-radius: 30px; padding: 9px 16px; font: 500 11px var(--font-body); letter-spacing: .12em; text-transform: uppercase; cursor: pointer; transition: .25s; }
+    .intro-skip:hover { background: white; transform: translateY(-2px); }
+    .intro-stage { position: relative; z-index: 1; width: min(100%, 520px); text-align: center; }
+    .intro-kicker { color: #98752e; font: 500 10px var(--font-body); letter-spacing: .28em; text-transform: uppercase; margin-bottom: 18px; }
+    .intro-heading { color: var(--maroon); font: 500 clamp(25px, 5vw, 39px) var(--font-heading); line-height: 1.25; margin-bottom: 9px; }
+    .intro-subtitle { color: #796c5a; font: 400 13px var(--font-body); letter-spacing: .04em; margin-bottom: 34px; }
+    .envelope-wrap { position: relative; width: min(82vw, 390px); height: 245px; margin: 0 auto 25px; perspective: 1100px; filter: drop-shadow(0 22px 26px rgba(72,10,19,.14)); }
+    .intro-envelope { position: absolute; inset: 28px 0 0; border-radius: 5px; background: linear-gradient(145deg,#fffdf8,#eee2cf); border: 1px solid #d8c18a; overflow: visible; }
+    .envelope-pocket { position: absolute; inset: 0; overflow: hidden; border-radius: 5px; }
+    .envelope-pocket::before { content: ''; position: absolute; inset: 0; background: linear-gradient(145deg,transparent 49.7%,rgba(192,157,91,.35) 50%,transparent 50.5%), linear-gradient(215deg,transparent 49.7%,rgba(192,157,91,.35) 50%,transparent 50.5%); }
+    .envelope-pocket::after { content: ''; position: absolute; inset: 0; background: linear-gradient(150deg,#f8f0df,#e9d8b9); clip-path: polygon(0 100%,50% 43%,100% 100%); border-top: 1px solid rgba(174,132,49,.5); }
+    .envelope-flap { position: absolute; z-index: 4; top: 0; left: 0; width: 100%; height: 58%; transform-origin: top center; transform: rotateX(0); backface-visibility: visible; background: linear-gradient(160deg,#fffaf0,#e9d8b9); clip-path: polygon(0 0,100% 0,50% 100%); border-top: 1px solid #d8c18a; transition: transform .95s cubic-bezier(.2,.75,.25,1); }
+    .wax-seal { position: absolute; z-index: 6; left: 50%; top: 48%; transform: translate(-50%,-50%); width: 62px; height: 62px; border-radius: 50%; border: 2px solid #d6b65f; background: radial-gradient(circle at 35% 28%,#a93a42,#68121e 68%); color: #f5df9b; box-shadow: 0 4px 12px rgba(72,10,19,.28), inset 0 0 0 3px rgba(236,204,119,.3); display: grid; place-items: center; font: 500 19px var(--font-display); cursor: pointer; transition: transform .3s, opacity .35s; }
+    .wax-seal:hover { transform: translate(-50%,-50%) scale(1.08); }
+    .intro-card { position: absolute; z-index: 2; left: 7%; width: 86%; height: 190px; top: 16px; padding: 25px 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; background: linear-gradient(145deg,#fffefa,#f7efdf); border: 1px solid #d8c18a; box-shadow: 0 5px 16px rgba(72,10,19,.1); color: var(--maroon); transform: translateY(45px) scale(.94); opacity: 0; transition: transform 1s cubic-bezier(.2,.75,.25,1), opacity .7s ease; }
+    .intro-card::before { content: ''; position: absolute; inset: 7px; border: 1px solid rgba(181,139,54,.45); pointer-events: none; }
+    .intro-card .card-small { color: #9a7835; font: 500 8px var(--font-body); letter-spacing: .24em; text-transform: uppercase; }
+    .intro-card .card-names { font: 400 clamp(27px,6vw,39px) var(--font-script); line-height: 1.25; margin: 8px 0 4px; }
+    .intro-card .card-date { color: #74664e; font: 500 10px var(--font-body); letter-spacing: .12em; }
+    .intro-open { margin-top: 18px; border: 1px solid #a98539; border-radius: 30px; padding: 12px 24px; color: #fffaf0; background: linear-gradient(120deg,#8d1725,#5a101b); font: 500 10px var(--font-body); letter-spacing: .16em; text-transform: uppercase; cursor: pointer; box-shadow: 0 7px 18px rgba(72,10,19,.16); opacity: 0; transform: translateY(8px); pointer-events: none; transition: opacity .5s, transform .5s, box-shadow .25s; }
+    .intro-open:hover { box-shadow: 0 10px 24px rgba(72,10,19,.25); transform: translateY(-2px); }
+    .intro-hint { color: #917b55; font: 400 10px var(--font-body); letter-spacing: .12em; text-transform: uppercase; margin-top: 4px; transition: opacity .3s; }
+    .invitation-intro.envelope-open .envelope-flap { transform: rotateX(180deg); }
+    .invitation-intro.envelope-open .wax-seal { opacity: 0; pointer-events: none; transform: translate(-50%,-40%) scale(.5); }
+    .invitation-intro.envelope-open .intro-card { transform: translateY(-38px) scale(1); opacity: 1; }
+    .invitation-intro.envelope-open .intro-hint { opacity: 0; }
+    .invitation-intro.card-ready .intro-open { opacity: 1; transform: translateY(0); pointer-events: auto; }
+    .invitation-intro.is-dismissed .intro-stage { transform: scale(1.04); transition: transform .8s ease; }
+    @keyframes intro-orbit { to { transform: rotate(360deg); } }
+    @media (max-width: 480px) {
+      .intro-skip { top: 14px; right: 14px; font-size: 9px; }
+      .intro-subtitle { margin-bottom: 25px; }
+      .envelope-wrap { height: 220px; }
+      .intro-card { height: 175px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .invitation-intro *, .invitation-intro::before, .invitation-intro::after { animation: none !important; transition-duration: .01ms !important; }
+    }
+
+  </style>
+</head>
+<body class="intro-active">
+
+  <!-- Interactive invitation opening experience -->
+  <section class="invitation-intro" id="invitationIntro" aria-label="Open the wedding invitation">
+    <button class="intro-skip" id="skipIntro" type="button">Skip intro</button>
+    <div class="intro-stage">
+      <div class="intro-kicker">A celebration of love</div>
+      <h1 class="intro-heading">A Special Invitation</h1>
+      <p class="intro-subtitle">We have something beautiful to share with you</p>
+      <div class="envelope-wrap" aria-label="A sealed wedding invitation">
+        <div class="intro-card">
+          <span class="card-small">Together with our families</span>
+          <span class="card-names">Abhijeeth &amp; Smitha</span>
+          <span class="card-date">REQUEST THE PLEASURE OF YOUR COMPANY</span>
+        </div>
+        <div class="intro-envelope">
+          <div class="envelope-pocket"></div>
+          <div class="envelope-flap"></div>
+          <button class="wax-seal" id="openEnvelope" type="button" aria-label="Break the seal and open the envelope">A&amp;S</button>
+        </div>
+      </div>
+      <p class="intro-hint" id="introHint">Tap the gold seal to open your invitation</p>
+      <button class="intro-open" id="enterInvitation" type="button">Enter invitation&nbsp; &#8594;</button>
+    </div>
+  </section>
+
+
+  <!-- Falling Flower Petal Canvas Overlay -->
+  <canvas id="canvas-petals"></canvas>
+
+  <!-- Navigation Bar -->
+  <header class="nav-bar">
+    <a href="#" class="nav-brand">A & S</a>
+    <nav class="nav-links">
+      <a href="#invitation">Invitation</a>
+      <a href="#events">Ceremonies</a>
+      <a href="#rsvp">RSVP</a>
+      <a href="#gifting">Blessings</a>
+    </nav>
+    <button class="nav-burger" id="burgerToggle" aria-label="Toggle Navigation Menu">
+      <i data-lucide="menu"></i>
+    </button>
+  </header>
+
+  <!-- Collapsible Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#invitation" class="mobile-nav-link">Invitation</a>
+    <a href="#events" class="mobile-nav-link">Ceremonies</a>
+    <a href="#rsvp" class="mobile-nav-link">RSVP</a>
+    <a href="#gifting" class="mobile-nav-link">Blessings</a>
+  </div>
+
+  <main class="container">
+
+    <!-- 1. HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="hero-sparkle">
+        <i data-lucide="sparkles" size="22"></i>
+      </div>
+
+      <p class="hero-lead">Wedding Celebration</p>
+      
+      <h1 class="couple-title">
+        Abhijeeth
+        <span class="couple-ampersand">&</span>
+        Smitha
+      </h1>
+
+      <p class="hero-date">Thursday, 10th December 2026</p>
+
+      <a href="#invitation" class="btn-hero">
+        Open Invitation <i data-lucide="chevron-down" size="18"></i>
+      </a>
+    </section>
+
+    <!-- 2. SILHOUETTE & ILLUSTRATION ARTWORK -->
+    <section class="luxury-card silhouette-card">
+      <div class="section-ornament">
+        <div class="section-ornament-line"></div>
+        <i data-lucide="heart" color="#c59b27" size="18"></i>
+        <div class="section-ornament-line reverse"></div>
+      </div>
+
+      <!-- Wedding Couple Illustration Frame with Fallback Protection -->
+      <div class="illustration-frame">
+        <img 
+          id="coupleMainImg"
+          src="./couple-illustration.png" 
+          alt="Artistic Illustration of Indian Bride and Groom in Traditional Attire"
+          onerror="handleImageFallback()"
+          loading="eager">
+        
+        <!-- Vector Fallback if image fails or is still deploying -->
+        <svg id="fallbackVector" class="fallback-vector-art" viewBox="0 0 400 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="maroonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#7e1d2b" />
+              <stop offset="100%" stop-color="#480a13" />
+            </linearGradient>
+            <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#e7cf7b" />
+              <stop offset="100%" stop-color="#c59b27" />
+            </linearGradient>
+          </defs>
+          <g fill="url(#maroonGrad)">
+            <ellipse cx="160" cy="90" rx="22" ry="18"/>
+            <path d="M145 80 Q160 55 175 75 Q165 90 145 80 Z" fill="url(#goldGrad)"/>
+            <path d="M140 110 C125 130, 120 180, 115 250 L195 250 C190 180, 185 130, 170 110 Z"/>
+          </g>
+          <g fill="url(#maroonGrad)">
+            <ellipse cx="240" cy="105" rx="18" ry="19"/>
+            <circle cx="230" cy="95" r="3.5" fill="url(#goldGrad)"/>
+            <path d="M220 120 C205 150, 200 200, 195 250 L285 250 C275 200, 265 150, 250 120 Z"/>
+            <path d="M245 110 C260 130, 275 180, 285 250 C280 250, 270 200, 255 140 Z" fill="url(#goldGrad)" opacity="0.6"/>
+          </g>
+          <path d="M165 135 Q195 185, 230 140" stroke="url(#goldGrad)" stroke-width="3" stroke-dasharray="2 3"/>
+        </svg>
+      </div>
+
+      <p class="quote-text">
+        "Two souls beginning a sacred journey of companionship, love, and lifelong togetherness."
+      </p>
+    </section>
+
+    <!-- 3. LIVE COUNTDOWN -->
+    <div class="countdown-widget" id="countdown">
+      <div class="countdown-selector">
+        <button class="tab-btn active" id="tabMuhurtham" onclick="setCountdownTarget('muhurtham')">
+          Muhurtham (Dec 10)
+        </button>
+        <button class="tab-btn" id="tabReception" onclick="setCountdownTarget('reception')">
+          Reception (Dec 19)
+        </button>
+      </div>
+      <div class="timer-grid">
+        <div class="timer-unit">
+          <span class="timer-val" id="cdDays">00</span>
+          <span class="timer-lbl">Days</span>
+        </div>
+        <div class="timer-unit">
+          <span class="timer-val" id="cdHours">00</span>
+          <span class="timer-lbl">Hours</span>
+        </div>
+        <div class="timer-unit">
+          <span class="timer-val" id="cdMinutes">00</span>
+          <span class="timer-lbl">Mins</span>
+        </div>
+        <div class="timer-unit">
+          <span class="timer-val" id="cdSeconds">00</span>
+          <span class="timer-lbl">Secs</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. FORMAL WEDDING INVITATION SECTION -->
+    <section class="luxury-card" id="invitation">
+      <div class="section-ornament">
+        <div class="section-ornament-line"></div>
+        <i data-lucide="sparkles" color="#c59b27" size="16"></i>
+        <div class="section-ornament-line reverse"></div>
+      </div>
+      
+      <div class="hosts-block">
+        Dr. Satish Vhavle & Smt. Snehalatha Vhavle
+      </div>
+      <div class="hosts-designation">
+        Retd. Dy. Director, AYUSH - GoK<br>
+        #557, 3rd Cross, BHEL Layout, RR Nagar, Bengaluru - 560098
+      </div>
+
+      <p class="section-subtitle">
+        Request the pleasure of your company with family and friends on the auspicious occasion of the wedding ceremony of their younger son
+      </p>
+
+      <div class="invitee-names">
+        <span class="person-title">Chi. Ry.</span>
+        <div class="person-full">Abhijeeth Vhavle</div>
+        
+        <span class="couple-ampersand" style="margin: 8px 0; font-size: 3.5rem;">weds</span>
+        
+        <span class="person-title">Chi. Sou.</span>
+        <div class="person-full">Smitha Ijantkar</div>
+        
+        <p class="bride-parents">
+          (Younger Daughter of Sri Shankar Rao Ijantkar & Smt. Jayashree, Ranebennur)
+        </p>
+      </div>
+    </section>
+
+    <!-- 5. WEDDING CEREMONIES & RECEPTION -->
+    <section id="events">
+      <div class="section-ornament">
+        <div class="section-ornament-line"></div>
+        <h2 class="section-title">Wedding Events</h2>
+        <div class="section-ornament-line reverse"></div>
+      </div>
+      <p class="section-subtitle">Join us in celebrating this joyous union</p>
+
+      <div class="events-grid">
+        
+        <!-- Event 1: Sacred Muhurtham -->
+        <article class="event-box" id="muhurtham-box">
+          <div>
+            <span class="event-badge">
+              <i data-lucide="sparkles" size="14"></i> Sacred Ceremony
+            </span>
+            <h3 class="event-heading">Wedding Ceremony</h3>
+            
+            <div class="event-details-list">
+              <div class="event-row">
+                <i data-lucide="calendar" size="18"></i>
+                <div>
+                  <strong>Thursday, 10th December 2026</strong><br>
+                  <span>Muhurtham: 8:30 AM to 9:30 AM</span><br>
+                  <small style="color: var(--gold-dark); font-weight: 600;">Lagna: Dhanu</small>
+                </div>
+              </div>
+              <div class="event-row">
+                <i data-lucide="utensils" size="18"></i>
+                <div>Followed by Traditional Lunch</div>
+              </div>
+              <div class="event-row">
+                <i data-lucide="map-pin" size="18"></i>
+                <div>
+                  <strong>Bellary Kalyana Mantapa</strong><br>
+                  Vinayaka Nagar, Ranebennur, Karnataka
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="btn-action-group">
+            <a href="https://maps.google.com/?q=Bellary+Kalyana+Mantapa+Vinayaka+Nagar+Ranebennur" target="_blank" rel="noopener noreferrer" class="btn-interactive btn-map">
+              <i data-lucide="navigation" size="15"></i> Directions
+            </a>
+            <button onclick="downloadCalendarEvent('wedding')" class="btn-interactive btn-cal">
+              <i data-lucide="calendar-plus" size="15"></i> Calendar
+            </button>
+          </div>
+        </article>
+
+        <!-- Event 2: Grand Reception -->
+        <article class="event-box" id="reception-box">
+          <div>
+            <span class="event-badge">
+              <i data-lucide="party-popper" size="14"></i> Evening Reception
+            </span>
+            <h3 class="event-heading">Wedding Reception</h3>
+            
+            <div class="event-details-list">
+              <div class="event-row">
+                <i data-lucide="calendar" size="18"></i>
+                <div>
+                  <strong>Saturday, 19th December 2026</strong><br>
+                  <span>Time: 7:00 PM onwards</span>
+                </div>
+              </div>
+              <div class="event-row">
+                <i data-lucide="utensils" size="18"></i>
+                <div>Dinner Follows</div>
+              </div>
+              <div class="event-row">
+                <i data-lucide="map-pin" size="18"></i>
+                <div>
+                  <strong>Holiday Village Resort</strong><br>
+                  #35, Kanakapura Road, Near Vajarahalli Metro Station, Bengaluru - 560109<br>
+                  <small style="color: var(--text-muted);">Ph: 09036662233</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="btn-action-group">
+            <a href="https://maps.app.goo.gl/hxCm3FPSa74RCpF3A?g_st=ac" target="_blank" rel="noopener noreferrer" class="btn-interactive btn-map">
+              <i data-lucide="navigation" size="15"></i> Directions
+            </a>
+            <button onclick="downloadCalendarEvent('reception')" class="btn-interactive btn-cal">
+              <i data-lucide="calendar-plus" size="15"></i> Calendar
+            </button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 6. RSVP SECTION (Direct to WhatsApp) -->
+    <section class="luxury-card" id="rsvp">
+      <div class="section-ornament">
+        <div class="section-ornament-line"></div>
+        <h2 class="section-title">RSVP</h2>
+        <div class="section-ornament-line reverse"></div>
+      </div>
+      <p class="section-subtitle">
+        Kindly grace us with your response so we may warmly prepare for your presence
+      </p>
+
+      <div class="rsvp-form-container">
+        <form id="weddingRsvpForm" onsubmit="handleRsvpSubmit(event)">
+          
+          <div class="form-field">
+            <label for="rsvpName">Full Name *</label>
+            <input type="text" id="rsvpName" name="name" class="form-input" placeholder="e.g. Anand Sharma" required>
+          </div>
+
+          <div class="form-duo">
+            <div class="form-field">
+              <label for="rsvpCount">Attendees *</label>
+              <select id="rsvpCount" name="attendees" class="form-select">
+                <option value="1 Person">1 Person</option>
+                <option value="2 Persons" selected>2 Persons</option>
+                <option value="3 Persons">3 Persons</option>
+                <option value="4 Persons">4 Persons</option>
+                <option value="5+ Family Members">5+ Family</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="rsvpAttendance">Attending *</label>
+              <select id="rsvpAttendance" name="attendance" class="form-select">
+                <option value="Joyfully Attending Both Events">Joyfully Attending Both</option>
+                <option value="Attending Muhurtham (Ranebennur)">Muhurtham (Ranebennur)</option>
+                <option value="Attending Reception (Bengaluru)">Reception (Bengaluru)</option>
+                <option value="Regretfully Unable to Attend">Unable to Attend</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="rsvpMessage">Blessing / Message for the Couple (Optional)</label>
+            <textarea id="rsvpMessage" name="message" class="form-textarea" placeholder="Send your warm wishes..."></textarea>
+          </div>
+
+          <button type="submit" class="btn-rsvp-submit" id="btnSubmitRsvp">
+            <i data-lucide="message-circle" size="18"></i> Confirm RSVP via WhatsApp
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- 7. WEDDING GIFT / CONTRIBUTION SECTION -->
+    <section class="luxury-card" id="gifting">
+      <div class="section-ornament">
+        <div class="section-ornament-line"></div>
+        <h2 class="section-title">Your Blessings Mean the World to Us</h2>
+        <div class="section-ornament-line reverse"></div>
+      </div>
+      <p class="section-subtitle">
+        Although we would love to celebrate this special occasion with you, we understand that distance and circumstances may not always make it possible. Your blessings and good wishes are more than enough. For those who would like to send a gift or contribute towards our new journey, the following options are available.
+      </p>
+
+      <div class="gift-cards-grid">
+        
+        <!-- Option A: Postal / Gift Delivery Address -->
+        <div class="gift-subcard">
+          <div>
+            <div class="gift-icon-header">
+              <i data-lucide="gift" size="24"></i>
+            </div>
+            <h3 class="gift-title">Gift Delivery Address</h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted);">For sending postal cards or courier packages:</p>
+            
+            <div class="copy-pill">
+              <span id="giftAddressText">#557, 3rd Cross, BHEL Layout, RR Nagar, Bangalore - 560098</span>
+              <button class="btn-copy" onclick="copyToClipboard('giftAddressText', this)">
+                <i data-lucide="copy" size="13"></i> Copy Address
+              </button>
+            </div>
+          </div>
+          <small style="color: var(--text-muted); font-size: 0.78rem;">Contact: Dr. Satish Vhavle (+91 99168 16947)</small>
+        </div>
+
+        <!-- Option B: Digital Shagun / Mobile Number Payment -->
+        <div class="gift-subcard">
+          <div>
+            <div class="gift-icon-header">
+              <i data-lucide="wallet" size="24"></i>
+            </div>
+            <h3 class="gift-title">Digital Shagun</h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted);">Scan QR code via GPay, PhonePe, Paytm, or BHIM:</p>
+            
+            <div class="qr-frame">
+              <img 
+                src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=upi%3A%2F%2Fpay%3Fpa%3D9916816947%40upi%26pn%3DSatish%2520Vhavle%26cu%3DINR" 
+                alt="Scan to pay 9916816947 via UPI"
+                style="width: 100%; height: 100%; object-fit: contain;"
+                loading="lazy"
+              />
+            </div>
+
+            <div class="copy-pill">
+              <span id="upiNumberText"><strong>+91 99168 16947</strong></span>
+              <button class="btn-copy" onclick="copyToClipboard('upiNumberText', this)">
+                <i data-lucide="copy" size="13"></i> Copy Number
+              </button>
+            </div>
+
+            <a href="upi://pay?pa=9916816947@upi&pn=Satish%20Vhavle&cu=INR" class="btn-upi-pay">
+              <i data-lucide="smartphone" size="16"></i> Pay to +91 99168 16947
+            </a>
+          </div>
+          <small style="display:block; color: var(--text-muted); font-size: 0.74rem; margin-top: 8px;">
+            Enter your preferred token of love in your UPI app
+          </small>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 8. FAMILY BLESSINGS & COMPLIMENTS SECTION -->
+    <section class="luxury-card" id="compliments">
+      <div class="section-ornament">
+        <div class="section-ornament-line"></div>
+        <p style="font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-dark); font-weight: 600;">
+          With Best Compliments From
+        </p>
+        <div class="section-ornament-line reverse"></div>
+      </div>
+
+      <div class="compliments-wrap">
+        <p class="highlight-names">Sri Navneeth, Rhea & Ira Vhavle</p>
+        <p>Smt. Indrayani Kakde • Smt. Satyavathi Bai Vhavle & Family</p>
+        <p>Sri Shankar Rao Ijantkar Family, Ranebennur</p>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Relatives, Friends & Well-Wishers</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer-bar">
+    <p>Abhijeeth & Smitha • Wedding Celebrations 2026</p>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+
+    // Image fallback handler
+    function handleImageFallback() {
+      const img = document.getElementById('coupleMainImg');
+      const fallback = document.getElementById('fallbackVector');
+      if (img && fallback) {
+        img.style.display = 'none';
+        fallback.style.display = 'block';
+      }
+    }
+
+    // 1. Mobile Menu Toggle
+    const burgerToggle = document.getElementById('burgerToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    burgerToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+    });
+
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+      });
+    });
+
+    // 2. Dual Countdown Logic
+    const targetDates = {
+      muhurtham: new Date('December 10, 2026 08:30:00').getTime(),
+      reception: new Date('December 19, 2026 19:00:00').getTime()
+    };
+
+    let activeEvent = 'muhurtham';
+
+    function setCountdownTarget(evt) {
+      activeEvent = evt;
+      document.getElementById('tabMuhurtham').classList.toggle('active', evt === 'muhurtham');
+      document.getElementById('tabReception').classList.toggle('active', evt === 'reception');
+      calculateCountdown();
+    }
+
+    function calculateCountdown() {
+      const now = new Date().getTime();
+      const difference = targetDates[activeEvent] - now;
+
+      if (difference > 0) {
+        const d = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const s = Math.floor((difference % (1000 * 60)) / 1000);
+
+        document.getElementById('cdDays').innerText = String(d).padStart(2, '0');
+        document.getElementById('cdHours').innerText = String(h).padStart(2, '0');
+        document.getElementById('cdMinutes').innerText = String(m).padStart(2, '0');
+        document.getElementById('cdSeconds').innerText = String(s).padStart(2, '0');
+      } else {
+        document.getElementById('cdDays').innerText = '00';
+        document.getElementById('cdHours').innerText = '00';
+        document.getElementById('cdMinutes').innerText = '00';
+        document.getElementById('cdSeconds').innerText = '00';
+      }
+    }
+    setInterval(calculateCountdown, 1000);
+    calculateCountdown();
+
+    // 3. iCalendar (.ics) Generator
+    function downloadCalendarEvent(type) {
+      let title, desc, loc, start, end;
+
+      if (type === 'wedding') {
+        title = "Wedding Ceremony of Abhijeeth & Smitha";
+        desc = "Auspicious wedding ceremony of Chi. Ry. Abhijeeth Vhavle and Chi. Sou. Smitha Ijantkar. Muhurtham: 8:30 AM to 9:30 AM (Lagna: Dhanu), followed by traditional lunch.";
+        loc = "Bellary Kalyana Mantapa, Vinayaka Nagar, Ranebennur, Karnataka";
+        start = "20261210T083000";
+        end = "20261210T143000";
+      } else {
+        title = "Wedding Reception of Abhijeeth & Smitha";
+        desc = "Wedding reception celebrations of Abhijeeth and Smitha. Dinner from 7:00 PM onwards.";
+        loc = "Holiday Village Resort, #35 Kanakapura Road, Near Vajarahalli Metro Station, Bengaluru - 560109";
+        start = "20261219T190000";
+        end = "20261219T233000";
+      }
+
+      const ics = [
+        "BEGIN:VCALENDAR",
+        "VERSION:2.0",
+        "PRODID:-//AbhijeethSmithaWedding//EN",
+        "BEGIN:VEVENT",
+        `SUMMARY:${title}`,
+        `DESCRIPTION:${desc}`,
+        `LOCATION:${loc}`,
+        `DTSTART:${start}`,
+        `DTEND:${end}`,
+        "STATUS:CONFIRMED",
+        "END:VEVENT",
+        "END:VCALENDAR"
+      ].join("\r\n");
+
+      const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${type}-abhijeeth-smitha.ics`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    // 4. RSVP Handling — Formulates and opens full message in WhatsApp
+    function handleRsvpSubmit(e) {
+      e.preventDefault();
+      
+      const name = document.getElementById('rsvpName').value.trim();
+      const attendees = document.getElementById('rsvpCount').value;
+      const attendance = document.getElementById('rsvpAttendance').value;
+      const message = document.getElementById('rsvpMessage').value.trim();
+
+      if (!name) {
+        alert("Please enter your name to confirm RSVP.");
+        return;
+      }
+
+      // Build clean multi-line text with zero broken characters or premature ampersands
+      let bodyText = "Namaskara! 🙏\n\n";
+      bodyText += "*Wedding RSVP for Abhijeeth and Smitha*\n";
+      bodyText += "👤 *Name:* " + name + "\n";
+      bodyText += "👥 *Attendees:* " + attendees + "\n";
+      bodyText += "🎉 *Attendance:* " + attendance + "\n";
+      
+      if (message) {
+        bodyText += "💬 *Message:* " + message + "\n";
+      }
+      
+      bodyText += "\nLooking forward to celebrating together!";
+
+      // Full URL encode handles spaces, emoticons, and symbols safely
+      const encodedMessage = encodeURIComponent(bodyText);
+      const whatsappUrl = "https://api.whatsapp.com/send?phone=919916816947&text=" + encodedMessage;
+      
+      window.open(whatsappUrl, '_blank');
+    }
+
+    // 5. Copy to Clipboard Utility
+    function copyToClipboard(elementId, btn) {
+      const text = document.getElementById(elementId).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const originalText = btn.innerHTML;
+        btn.innerHTML = `<i data-lucide="check" size="13"></i> Copied!`;
+        lucide.createIcons();
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+          lucide.createIcons();
+        }, 2200);
+      });
+    }
+
+    // 6. Silent Falling Flower Petals Canvas
+    const canvas = document.getElementById('canvas-petals');
+    const ctx = canvas.getContext('2d');
+    let petals = [];
+
+    function resizePetalCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizePetalCanvas);
+    resizePetalCanvas();
+
+    class Petal {
+      constructor() {
+        this.reset();
+      }
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = -20;
+        this.size = Math.random() * 8 + 6;
+        this.speedY = Math.random() * 1.0 + 0.5;
+        this.speedX = Math.random() * 0.8 - 0.4;
+        this.angle = Math.random() * 360;
+        this.spin = Math.random() * 1.6 - 0.8;
+        this.opacity = Math.random() * 0.35 + 0.2;
+      }
+      update() {
+        this.y += this.speedY;
+        this.x += this.speedX + Math.sin(this.angle * Math.PI / 180) * 0.4;
+        this.angle += this.spin;
+        if (this.y > canvas.height + 20) this.reset();
+      }
+      draw() {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.angle * Math.PI / 180);
+        ctx.fillStyle = `rgba(180, 40, 55, ${this.opacity})`;
+        ctx.beginPath();
+        ctx.ellipse(0, 0, this.size, this.size * 0.65, 0, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    for (let i = 0; i < 20; i++) {
+      const p = new Petal();
+      p.y = Math.random() * canvas.height;
+      petals.push(p);
+    }
+
+    function renderPetals() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      petals.forEach(p => {
+        p.update();
+        p.draw();
+      });
+      requestAnimationFrame(renderPetals);
+    }
+    renderPetals();
+  
+
+    // === VISUAL ENHANCEMENTS: scroll reveals and refined navigation ===
+    (function () {
+      const nav = document.querySelector('.nav-bar');
+      const revealTargets = document.querySelectorAll(
+        '.hero-sparkle, .hero-lead, .couple-title, .hero-date, .btn-hero, .luxury-card, .countdown-widget, .event-box, .gift-subcard, .footer-bar'
+      );
+      revealTargets.forEach((el, index) => {
+        el.classList.add('reveal');
+        if (el.classList.contains('event-box') || el.classList.contains('gift-subcard')) {
+          el.dataset.revealDelay = String((index % 3) + 1);
+        }
+      });
+
+      if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.classList.add('reveal-ready');
+        const observer = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              obs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -35px 0px' });
+        revealTargets.forEach(el => observer.observe(el));
+      }
+
+      const updateNav = () => {
+        if (nav) nav.classList.toggle('scrolled', window.scrollY > 24);
+      };
+      window.addEventListener('scroll', updateNav, { passive: true });
+      updateNav();
+    })();
+
+
+    // Interactive envelope intro: shown once per browser; skip is always available.
+    (function () {
+      const intro = document.getElementById('invitationIntro');
+      const openButton = document.getElementById('openEnvelope');
+      const enterButton = document.getElementById('enterInvitation');
+      const skipButton = document.getElementById('skipIntro');
+      if (!intro || !openButton || !enterButton || !skipButton) return;
+
+      let alreadySeen = false;
+      try { alreadySeen = localStorage.getItem('abhijeeth-smitha-intro-seen') === 'yes'; } catch (e) {}
+      if (alreadySeen) {
+        intro.classList.add('is-dismissed');
+        document.body.classList.remove('intro-active');
+        return;
+      }
+
+      openButton.addEventListener('click', () => {
+        if (intro.classList.contains('envelope-open')) return;
+        intro.classList.add('envelope-open');
+        window.setTimeout(() => intro.classList.add('card-ready'), 850);
+      });
+
+      function enterSite() {
+        try { localStorage.setItem('abhijeeth-smitha-intro-seen', 'yes'); } catch (e) {}
+        intro.classList.add('is-dismissed');
+        document.body.classList.remove('intro-active');
+        window.setTimeout(() => intro.remove(), 950);
+      }
+      enterButton.addEventListener('click', enterSite);
+      skipButton.addEventListener('click', enterSite);
+    })();
+
+  </script>
+</body>
+</html>
