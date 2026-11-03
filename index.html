@@ -348,7 +348,7 @@
       width: 100%;
       height: auto;
       display: block;
-      object-fit: cover;
+      object-fit: contain;
     }
 
     .fallback-vector-art {
@@ -645,13 +645,13 @@
 
     .btn-rsvp-submit {
       width: 100%;
-      background: var(--maroon);
+      background: #25D366;
       color: #fff;
-      border: 1px solid var(--gold);
-      padding: 15px;
+      border: 1px solid #1ebe5d;
+      padding: 16px;
       border-radius: 10px;
-      font-size: 0.95rem;
-      font-weight: 600;
+      font-size: 0.98rem;
+      font-weight: 700;
       letter-spacing: 1px;
       text-transform: uppercase;
       cursor: pointer;
@@ -659,61 +659,14 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
+      box-shadow: 0 6px 18px rgba(37, 211, 102, 0.25);
       transition: all 0.25s ease;
       margin-top: 10px;
     }
 
     .btn-rsvp-submit:hover {
-      background: var(--maroon-deep);
-    }
-
-    .rsvp-secondary-action {
-      margin-top: 18px;
-      text-align: center;
-    }
-
-    .btn-whatsapp-rsvp {
-      background: #25D366;
-      color: #fff;
-      border: none;
-      padding: 12px 24px;
-      border-radius: 10px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      cursor: pointer;
-      text-decoration: none;
-      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
-      transition: transform 0.2s ease;
-    }
-
-    .btn-whatsapp-rsvp:hover {
+      background: #1eb956;
       transform: translateY(-2px);
-    }
-
-    .rsvp-status-msg {
-      margin-top: 14px;
-      padding: 12px;
-      border-radius: 8px;
-      display: none;
-      font-size: 0.9rem;
-      text-align: center;
-    }
-
-    .rsvp-status-msg.success {
-      display: block;
-      background: #d4edda;
-      color: #155724;
-      border: 1px solid #c3e6cb;
-    }
-
-    .rsvp-status-msg.error {
-      display: block;
-      background: #f8d7da;
-      color: #721c24;
-      border: 1px solid #f5c6cb;
     }
 
     /* Section 7: Gift / Contributions */
@@ -943,16 +896,16 @@
         <div class="section-ornament-line reverse"></div>
       </div>
 
-      <!-- Wedding Couple Illustration Frame with Automatic Vector Fallback -->
+      <!-- Wedding Couple Illustration Frame with Fallback Protection -->
       <div class="illustration-frame">
         <img 
           id="coupleMainImg"
-          src="couple-illustration.png" 
+          src="./couple-illustration.png" 
           alt="Artistic Illustration of Indian Bride and Groom in Traditional Attire"
           onerror="handleImageFallback()"
-          loading="lazy">
+          loading="eager">
         
-        <!-- Graceful Vector Fallback if couple-illustration.png is not yet uploaded -->
+        <!-- Vector Fallback if image fails or is still deploying -->
         <svg id="fallbackVector" class="fallback-vector-art" viewBox="0 0 400 320" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="maroonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -1145,7 +1098,7 @@
       </div>
     </section>
 
-    <!-- 6. RSVP SECTION -->
+    <!-- 6. RSVP SECTION (Direct to WhatsApp) -->
     <section class="luxury-card" id="rsvp">
       <div class="section-ornament">
         <div class="section-ornament-line"></div>
@@ -1157,7 +1110,7 @@
       </p>
 
       <div class="rsvp-form-container">
-        <form id="weddingRsvpForm">
+        <form id="weddingRsvpForm" onsubmit="handleRsvpSubmit(event)">
           
           <div class="form-field">
             <label for="rsvpName">Full Name *</label>
@@ -1168,18 +1121,18 @@
             <div class="form-field">
               <label for="rsvpCount">Attendees *</label>
               <select id="rsvpCount" name="attendees" class="form-select">
-                <option value="1">1 Person</option>
-                <option value="2" selected>2 Persons</option>
-                <option value="3">3 Persons</option>
-                <option value="4">4 Persons</option>
-                <option value="5+">5+ Family</option>
+                <option value="1 Person">1 Person</option>
+                <option value="2 Persons" selected>2 Persons</option>
+                <option value="3 Persons">3 Persons</option>
+                <option value="4 Persons">4 Persons</option>
+                <option value="5+ Family Members">5+ Family</option>
               </select>
             </div>
 
             <div class="form-field">
               <label for="rsvpAttendance">Attending *</label>
               <select id="rsvpAttendance" name="attendance" class="form-select">
-                <option value="Joyfully Attending Both">Joyfully Attending Both</option>
+                <option value="Joyfully Attending Both Events">Joyfully Attending Both</option>
                 <option value="Attending Muhurtham (Ranebennur)">Muhurtham (Ranebennur)</option>
                 <option value="Attending Reception (Bengaluru)">Reception (Bengaluru)</option>
                 <option value="Regretfully Unable to Attend">Unable to Attend</option>
@@ -1193,18 +1146,9 @@
           </div>
 
           <button type="submit" class="btn-rsvp-submit" id="btnSubmitRsvp">
-            <i data-lucide="send" size="16"></i> Confirm RSVP
+            <i data-lucide="message-circle" size="18"></i> Confirm RSVP via WhatsApp
           </button>
         </form>
-
-        <div id="rsvpAlert" class="rsvp-status-msg"></div>
-
-        <div class="rsvp-secondary-action">
-          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px;">Or RSVP directly via WhatsApp:</p>
-          <button onclick="sendDirectWhatsAppRSVP()" class="btn-whatsapp-rsvp">
-            <i data-lucide="message-circle" size="16"></i> Instant WhatsApp RSVP
-          </button>
-        </div>
       </div>
     </section>
 
@@ -1249,7 +1193,6 @@
             <h3 class="gift-title">Digital Shagun</h3>
             <p style="font-size: 0.88rem; color: var(--text-muted);">Scan QR code via GPay, PhonePe, Paytm, or BHIM:</p>
             
-            <!-- Live QR Code generating payment directly to the mobile number -->
             <div class="qr-frame">
               <img 
                 src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=upi%3A%2F%2Fpay%3Fpa%3D9916816947%40upi%26pn%3DSatish%2520Vhavle%26cu%3DINR" 
@@ -1266,7 +1209,6 @@
               </button>
             </div>
 
-            <!-- Deep link targeting the phone number directly -->
             <a href="upi://pay?pa=9916816947@upi&pn=Satish%20Vhavle&cu=INR" class="btn-upi-pay">
               <i data-lucide="smartphone" size="16"></i> Pay to +91 99168 16947
             </a>
@@ -1414,60 +1356,38 @@
       URL.revokeObjectURL(url);
     }
 
-    // 4. RSVP Handling
-    const FORMSPREE_ENDPOINT = ""; 
-
-    const rsvpForm = document.getElementById('weddingRsvpForm');
-    const rsvpAlert = document.getElementById('rsvpAlert');
-
-    rsvpForm.addEventListener('submit', async (e) => {
+    // 4. RSVP Handling — Formulates and opens full message in WhatsApp
+    function handleRsvpSubmit(e) {
       e.preventDefault();
       
       const name = document.getElementById('rsvpName').value.trim();
-      const count = document.getElementById('rsvpCount').value;
+      const attendees = document.getElementById('rsvpCount').value;
       const attendance = document.getElementById('rsvpAttendance').value;
-      const msg = document.getElementById('rsvpMessage').value.trim();
+      const message = document.getElementById('rsvpMessage').value.trim();
 
       if (!name) {
-        showRsvpAlert("Please enter your name.", "error");
+        alert("Please enter your name to confirm RSVP.");
         return;
       }
 
-      if (FORMSPREE_ENDPOINT) {
-        try {
-          const res = await fetch(FORMSPREE_ENDPOINT, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-            body: JSON.stringify({ name, count, attendance, message: msg })
-          });
-          if (res.ok) {
-            showRsvpAlert("Thank you! Your RSVP has been received successfully.", "success");
-            rsvpForm.reset();
-          } else {
-            showRsvpAlert("There was an issue sending your RSVP. Please use the WhatsApp RSVP button below.", "error");
-          }
-        } catch (err) {
-          showRsvpAlert("Network error. Please use the WhatsApp RSVP button below.", "error");
-        }
-      } else {
-        sendDirectWhatsAppRSVP();
-      }
-    });
-
-    function showRsvpAlert(message, type) {
-      rsvpAlert.textContent = message;
-      rsvpAlert.className = `rsvp-status-msg ${type}`;
-    }
-
-    function sendDirectWhatsAppRSVP() {
-      const name = document.getElementById('rsvpName').value.trim() || 'Guest';
-      const count = document.getElementById('rsvpCount').value;
-      const attendance = document.getElementById('rsvpAttendance').value;
-      const msg = document.getElementById('rsvpMessage').value.trim();
-
-      const text = `Namaskara! 🙏%0A%0A*Wedding RSVP for Abhijeeth & Smitha*%0A👤 *Name:* ${encodeURIComponent(name)}%0A👥 *Attendees:* ${count}%0A🎉 *Attendance:* ${encodeURIComponent(attendance)}${msg ? `%0A💬 *Message:* ${encodeURIComponent(msg)}` : ''}%0A%0AWe look forward to celebrating together! ✨`;
+      // Build clean multi-line text with zero broken characters or premature ampersands
+      let bodyText = "Namaskara! 🙏\n\n";
+      bodyText += "*Wedding RSVP for Abhijeeth and Smitha*\n";
+      bodyText += "👤 *Name:* " + name + "\n";
+      bodyText += "👥 *Attendees:* " + attendees + "\n";
+      bodyText += "🎉 *Attendance:* " + attendance + "\n";
       
-      window.open(`https://wa.me/919916816947?text=${text}`, '_blank');
+      if (message) {
+        bodyText += "💬 *Message:* " + message + "\n";
+      }
+      
+      bodyText += "\nLooking forward to celebrating together!";
+
+      // Full URL encode handles spaces, emoticons, and symbols safely
+      const encodedMessage = encodeURIComponent(bodyText);
+      const whatsappUrl = "https://api.whatsapp.com/send?phone=919916816947&text=" + encodedMessage;
+      
+      window.open(whatsappUrl, '_blank');
     }
 
     // 5. Copy to Clipboard Utility
