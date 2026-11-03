@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Abhijeeth & Smitha — Royal Wedding Celebration</title>
+  <title>Abhijeeth & Smitha — Wedding Celebration</title>
   
   <!-- Open Graph / WhatsApp Preview Metadata -->
   <meta property="og:type" content="website">
@@ -219,15 +219,6 @@
       background: linear-gradient(to left, transparent, var(--gold));
     }
 
-    .sacred-header {
-      color: var(--maroon);
-      font-size: 0.82rem;
-      letter-spacing: 3px;
-      font-weight: 600;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-
     .section-title {
       font-family: var(--font-heading);
       color: var(--maroon-deep);
@@ -247,21 +238,26 @@
 
     /* Section 1: Hero Section */
     .hero-section {
-      min-height: 100vh;
+      min-height: 90vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
       padding-top: 100px;
-      padding-bottom: 60px;
+      padding-bottom: 50px;
     }
 
-    .namam-icon {
-      width: 68px;
-      height: 68px;
-      margin-bottom: 16px;
-      filter: drop-shadow(0 4px 6px rgba(197, 155, 39, 0.3));
+    .hero-sparkle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(197, 155, 39, 0.12);
+      color: var(--gold);
+      margin-bottom: 18px;
     }
 
     .hero-lead {
@@ -275,7 +271,7 @@
 
     .couple-title {
       font-family: var(--font-heading);
-      font-size: clamp(2.2rem, 6vw, 4rem);
+      font-size: clamp(2.3rem, 6vw, 4.2rem);
       font-weight: 700;
       color: var(--maroon-deep);
       letter-spacing: 2px;
@@ -326,19 +322,29 @@
 
     /* Section 2: Silhouette Art Section */
     .silhouette-card {
-      background: linear-gradient(180deg, rgba(254,252,247,0.95) 0%, rgba(243,236,224,0.6) 100%);
+      background: #fff;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 40px 20px;
+      padding: 30px 20px 40px;
+      overflow: hidden;
     }
 
-    .couple-silhouette-svg {
+    .illustration-frame {
       width: 100%;
-      max-width: 320px;
+      max-width: 680px;
+      border-radius: 14px;
+      overflow: hidden;
+      margin: 14px auto 20px;
+      box-shadow: 0 12px 30px rgba(99, 18, 29, 0.08);
+      border: 1px solid var(--border-gold);
+    }
+
+    .illustration-frame img {
+      width: 100%;
       height: auto;
-      margin: 20px auto;
-      filter: drop-shadow(0 10px 15px rgba(99, 18, 29, 0.12));
+      display: block;
+      object-fit: cover;
     }
 
     .quote-text {
@@ -347,7 +353,7 @@
       font-size: 1.15rem;
       font-style: italic;
       max-width: 580px;
-      margin: 16px auto;
+      margin: 16px auto 0 auto;
       line-height: 1.8;
     }
 
@@ -428,10 +434,10 @@
     }
 
     .hosts-block {
-      font-size: 1.15rem;
+      font-size: 1.2rem;
       font-weight: 600;
       color: var(--maroon-deep);
-      margin: 16px 0 8px 0;
+      margin: 10px 0 6px 0;
     }
 
     .hosts-designation {
@@ -456,7 +462,7 @@
 
     .person-full {
       font-family: var(--font-heading);
-      font-size: 1.7rem;
+      font-size: 1.75rem;
       font-weight: 700;
       color: var(--maroon-deep);
       margin: 2px 0;
@@ -855,7 +861,6 @@
     <nav class="nav-links">
       <a href="#invitation">Invitation</a>
       <a href="#events">Ceremonies</a>
-      <a href="#directions">Venues</a>
       <a href="#rsvp">RSVP</a>
       <a href="#gifting">Blessings</a>
     </nav>
@@ -868,7 +873,6 @@
   <div class="mobile-menu" id="mobileMenu">
     <a href="#invitation" class="mobile-nav-link">Invitation</a>
     <a href="#events" class="mobile-nav-link">Ceremonies</a>
-    <a href="#directions" class="mobile-nav-link">Venues</a>
     <a href="#rsvp" class="mobile-nav-link">RSVP</a>
     <a href="#gifting" class="mobile-nav-link">Blessings</a>
   </div>
@@ -877,16 +881,10 @@
 
     <!-- 1. HERO SECTION -->
     <section class="hero-section" id="hero">
-      
-      <!-- Auspicious Tirupati Venkateswara Namam Motif -->
-      <svg class="namam-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Sacred Namam Motif">
-        <path d="M50 12 L50 78" stroke="#c59b27" stroke-width="7" stroke-linecap="round"/>
-        <path d="M28 20 C28 58, 44 78, 44 78" stroke="#63121d" stroke-width="6.5" stroke-linecap="round"/>
-        <path d="M72 20 C72 58, 56 78, 56 78" stroke="#63121d" stroke-width="6.5" stroke-linecap="round"/>
-        <circle cx="50" cy="88" r="5" fill="#c59b27"/>
-      </svg>
+      <div class="hero-sparkle">
+        <i data-lucide="sparkles" size="22"></i>
+      </div>
 
-      <p class="sacred-header">|| Om Sri Venkateswara Prasanna ||</p>
       <p class="hero-lead">Wedding Celebration</p>
       
       <h1 class="couple-title">
@@ -902,57 +900,21 @@
       </a>
     </section>
 
-    <!-- 2. SILHOUETTE & OUR STORY ARTWORK -->
+    <!-- 2. SILHOUETTE & ILLUSTRATION ARTWORK -->
     <section class="luxury-card silhouette-card">
       <div class="section-ornament">
         <div class="section-ornament-line"></div>
-        <i data-lucide="sparkles" color="#c59b27" size="18"></i>
+        <i data-lucide="heart" color="#c59b27" size="18"></i>
         <div class="section-ornament-line reverse"></div>
       </div>
 
-      <!-- Traditional Indian Bride & Groom Artistic Silhouette in Saree & Sherwani -->
-      <svg class="couple-silhouette-svg" viewBox="0 0 400 500" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Traditional Indian Bride and Groom Silhouette">
-        <defs>
-          <linearGradient id="silhouetteGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#63121d" />
-            <stop offset="100%" stop-color="#480a13" />
-          </linearGradient>
-          <linearGradient id="goldOrnamentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#e7cf7b" />
-            <stop offset="100%" stop-color="#c59b27" />
-          </linearGradient>
-        </defs>
-
-        <!-- Groom in Safa & Traditional Sherwani Silhouette -->
-        <g fill="url(#silhouetteGrad)">
-          <!-- Safa / Turban -->
-          <ellipse cx="145" cy="115" rx="30" ry="24"/>
-          <path d="M125 105 Q145 75 165 100 Q150 115 125 105 Z" fill="url(#goldOrnamentGrad)"/>
-          <path d="M142 80 L145 60 L148 80 Z" fill="url(#goldOrnamentGrad)"/> <!-- Kalgi plume -->
-          <!-- Groom Head & Beard Profile -->
-          <circle cx="148" cy="122" r="18"/>
-          <!-- Groom Sherwani Body & Stole -->
-          <path d="M125 140 C110 160, 105 210, 100 280 C95 350, 90 440, 90 470 L195 470 C195 440, 190 350, 185 280 C180 210, 175 160, 160 140 Z"/>
-          <!-- Traditional Dupatta / Stole drape -->
-          <path d="M118 145 C125 210, 130 290, 120 400 C125 400, 132 390, 135 290 C138 210, 130 150, 125 145 Z" fill="url(#goldOrnamentGrad)" opacity="0.65"/>
-        </g>
-
-        <!-- Bride in Traditional Bridal Saree & Pallu Silhouette -->
-        <g fill="url(#silhouetteGrad)">
-          <!-- Bridal Maang Tikka & Hair Bun -->
-          <ellipse cx="250" cy="135" rx="22" ry="24"/>
-          <circle cx="238" cy="120" r="4" fill="url(#goldOrnamentGrad)"/> <!-- Tikka -->
-          <!-- Face Profile -->
-          <circle cx="242" cy="136" r="16"/>
-          <!-- Bridal Saree Contour & Pallu Silhouette -->
-          <path d="M225 152 C210 180, 205 240, 200 310 C195 380, 190 430, 185 470 L310 470 C310 440, 305 380, 290 310 C280 240, 270 180, 255 152 Z"/>
-          <!-- Flowing Sheer Pallu Outline with Gold Zari Border Accent -->
-          <path d="M255 140 C275 160, 300 220, 315 310 C325 380, 330 440, 335 470 C328 470, 320 440, 310 380 C295 300, 275 220, 252 150 Z" fill="url(#goldOrnamentGrad)" opacity="0.75"/>
-        </g>
-
-        <!-- Connecting Garland (Varmala) Accents -->
-        <path d="M152 170 Q195 240, 235 175" stroke="url(#goldOrnamentGrad)" stroke-width="4" stroke-dasharray="2 4" stroke-linecap="round"/>
-      </svg>
+      <!-- Modern Wedding Couple Illustration -->
+      <div class="illustration-frame">
+        <img 
+          src="couple-illustration.png" 
+          alt="Artistic Illustration of Indian Bride and Groom in Traditional Attire"
+          loading="lazy">
+      </div>
 
       <p class="quote-text">
         "Two souls beginning a sacred journey of companionship, love, and lifelong togetherness."
@@ -991,7 +953,11 @@
 
     <!-- 4. FORMAL WEDDING INVITATION SECTION -->
     <section class="luxury-card" id="invitation">
-      <p class="sacred-header">|| Om Sri Venkateswara Prasanna ||</p>
+      <div class="section-ornament">
+        <div class="section-ornament-line"></div>
+        <i data-lucide="sparkles" color="#c59b27" size="16"></i>
+        <div class="section-ornament-line reverse"></div>
+      </div>
       
       <div class="hosts-block">
         Smt. Snehalatha & Dr. Satish Vhavle
@@ -1027,7 +993,7 @@
         <h2 class="section-title">Wedding Events</h2>
         <div class="section-ornament-line reverse"></div>
       </div>
-      <p class="section-subtitle">Join us in solemn prayers and joyous celebrations</p>
+      <p class="section-subtitle">Join us in celebrating this joyous union</p>
 
       <div class="events-grid">
         
@@ -1104,7 +1070,6 @@
           </div>
 
           <div class="btn-action-group">
-            <!-- Exact Google Maps URL verified from conversation -->
             <a href="https://maps.app.goo.gl/hxCm3FPSa74RCpF3A?g_st=ac" target="_blank" rel="noopener noreferrer" class="btn-interactive btn-map">
               <i data-lucide="navigation" size="15"></i> Directions
             </a>
@@ -1129,7 +1094,6 @@
       </p>
 
       <div class="rsvp-form-container">
-        <!-- Static Formspree-ready form with seamless WhatsApp fallback -->
         <form id="weddingRsvpForm">
           
           <div class="form-field">
@@ -1219,22 +1183,17 @@
           <h3 class="gift-title">Digital Shagun / UPI</h3>
           <p style="font-size: 0.88rem; color: var(--text-muted);">Scan QR code via GPay, PhonePe, Paytm, or BHIM:</p>
           
-          <!-- Crisp Clean SVG QR Code Representation -->
           <div class="qr-frame">
             <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <!-- Corner Finder 1 -->
               <rect x="5" y="5" width="28" height="28" rx="4" fill="#63121d"/>
               <rect x="11" y="11" width="16" height="16" rx="2" fill="#fff"/>
               <rect x="15" y="15" width="8" height="8" rx="1" fill="#63121d"/>
-              <!-- Corner Finder 2 -->
               <rect x="67" y="5" width="28" height="28" rx="4" fill="#63121d"/>
               <rect x="73" y="11" width="16" height="16" rx="2" fill="#fff"/>
               <rect x="77" y="15" width="8" height="8" rx="1" fill="#63121d"/>
-              <!-- Corner Finder 3 -->
               <rect x="5" y="67" width="28" height="28" rx="4" fill="#63121d"/>
               <rect x="11" y="73" width="16" height="16" rx="2" fill="#fff"/>
               <rect x="15" y="77" width="8" height="8" rx="1" fill="#63121d"/>
-              <!-- Decorative Pattern Modules -->
               <rect x="42" y="8" width="6" height="6" fill="#c59b27"/>
               <rect x="52" y="16" width="6" height="6" fill="#480a13"/>
               <rect x="40" y="24" width="6" height="6" fill="#480a13"/>
@@ -1258,7 +1217,6 @@
             </button>
           </div>
 
-          <!-- Direct mobile deep-link (no amount hardcoded) -->
           <a href="upi://pay?pa=9916816947@okaxis&pn=Satish%20Vhavle&cu=INR" class="btn-upi-pay">
             <i data-lucide="smartphone" size="16"></i> Pay via UPI App
           </a>
@@ -1274,7 +1232,9 @@
     <section class="luxury-card" id="compliments">
       <div class="section-ornament">
         <div class="section-ornament-line"></div>
-        <p class="sacred-header">With Best Compliments From</p>
+        <p style="font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-dark); font-weight: 600;">
+          With Best Compliments From
+        </p>
         <div class="section-ornament-line reverse"></div>
       </div>
 
@@ -1290,12 +1250,10 @@
 
   <!-- Footer -->
   <footer class="footer-bar">
-    <p>|| Om Sri Venkateswara Prasanna ||</p>
-    <p style="margin-top: 6px;">Abhijeeth & Smitha • Wedding Celebrations 2026</p>
+    <p>Abhijeeth & Smitha • Wedding Celebrations 2026</p>
   </footer>
 
   <script>
-    // Initialize Lucide Icons
     lucide.createIcons();
 
     // 1. Mobile Menu Toggle
@@ -1395,9 +1353,8 @@
       URL.revokeObjectURL(url);
     }
 
-    // 4. RSVP Handling (Formspree + Direct WhatsApp)
-    // NOTE: To receive RSVP responses via email, create a free endpoint at formspree.io and replace FORMSPREE_ENDPOINT below.
-    const FORMSPREE_ENDPOINT = ""; // Leave blank for direct WhatsApp fallback
+    // 4. RSVP Handling
+    const FORMSPREE_ENDPOINT = ""; 
 
     const rsvpForm = document.getElementById('weddingRsvpForm');
     const rsvpAlert = document.getElementById('rsvpAlert');
@@ -1416,7 +1373,6 @@
       }
 
       if (FORMSPREE_ENDPOINT) {
-        // Real submission to Formspree backend
         try {
           const res = await fetch(FORMSPREE_ENDPOINT, {
             method: 'POST',
@@ -1433,7 +1389,6 @@
           showRsvpAlert("Network error. Please use the WhatsApp RSVP button below.", "error");
         }
       } else {
-        // Fallback directly to verified WhatsApp message
         sendDirectWhatsAppRSVP();
       }
     });
